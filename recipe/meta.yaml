@@ -1,5 +1,7 @@
 {% set name = "prawn-table" %}
 {% set version = "0.2.2" %}
+{% set hash = "336d46e39e003f77bf973337a958af6a68300b941c85cb22288872dc2b36addb" %}
+{% set build = 2 %}
 
 package:
   name: rb-{{ name|lower }}
@@ -7,11 +9,11 @@ package:
 
 source:
   - url: https://rubygems.org/downloads/{{ name }}-{{ version }}.gem
-    sha256: 336d46e39e003f77bf973337a958af6a68300b941c85cb22288872dc2b36addb
+    sha256: {{ hash }}
 
 build:
   noarch: generic
-  number: 1
+  number: {{ build }}
   script:
     - gem install -N -l -V --norc --ignore-dependencies -n $PREFIX/bin {{ name }}-{{ version }}.gem
     - gem unpack {{ name }}-{{ version }}.gem
